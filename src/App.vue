@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <cocktailsearch v-on:search-item="searchItem" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import cocktailsearch from '@/components/CocktailSearch.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: { cocktailsearch },
+  data: function() {
+    return {
+      item: ""
+    }
+  },
+  methods: {
+    searchItem: function(item) {
+      console.log("hello!");
+      fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${item}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      });
+    },
+  },
+};
+</script> 
