@@ -32,7 +32,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#home {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
+h1 {
+  padding-top: 25px;
+}
+
+form {
+  padding: 25px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px;
+}
 
 
 </style>

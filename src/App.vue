@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <cocktailsearch v-on:search-item="searchItem" />
-
     <ul>
       <cocktailitem
           v-for="(cocktail, index) in items"
@@ -15,6 +14,13 @@
       v-show="isModalVisible"
       @close="closeModal"
       v-bind:strDrink="strDrink"
+      v-bind:strIngredient1="strIngredient1"
+      v-bind:strIngredient2="strIngredient2"
+      v-bind:strIngredient3="strIngredient3"
+      v-bind:strMeasure1="strMeasure1"
+      v-bind:strMeasure2="strMeasure2"
+      v-bind:strMeasure3="strMeasure3"
+      v-bind:strInstructions="strInstructions"
     />
   </div>
 </template>
@@ -31,7 +37,14 @@ export default {
       item: "",
       items: [],
       isModalVisible: false,
-      strDrink: "Margarita"
+      strDrink: "Margarita",
+      strIngredient1: "coconut",
+      strIngredient2: "banana",
+      strIngredient3: "whiskey",
+      strMeasure1: "1 oz",
+      strMeasure2: "2 oz",
+      strMeasure3: "3 oz",
+      strInstructions: "Shake it a lot!"
     }
   },
   methods: {
@@ -48,6 +61,13 @@ export default {
     },
     showModal(cocktail) {
         this.strDrink = cocktail.strDrink;
+        this.strIngredient1 = cocktail.strIngredient1;
+        this.strIngredient2 = cocktail.strIngredient2;
+        this.strIngredient3 = cocktail.strIngredient3;
+        this.strMeasure1 = cocktail.strMeasure1;
+        this.strMeasure2 = cocktail.strMeasure2;
+        this.strMeasure2 = cocktail.strMeasure3;
+        this.strInstructions = cocktail.strInstructions;
         this.isModalVisible = true;
     },
     closeModal() {
@@ -69,7 +89,4 @@ ul {
   grid-auto-flow: row;
   grid-template-columns: repeat(4, 1fr);
 }
-
-
-
 </style>

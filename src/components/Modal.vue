@@ -3,9 +3,6 @@
         <div class="modal-backdrop">
             <div class="modal">
             <header class="modal-header">
-                <slot name="header">
-                This is the default title!
-                </slot>
                 <button
                 type="button"
                 class="btn-close"
@@ -16,21 +13,21 @@
             </header>
 
             <section class="modal-body">
-                <slot name="body">
-                {{strDrink}}
-                </slot>
+              <h2>{{strDrink}}</h2>
+              <h3>Ingredients:</h3>
+              <p>{{strMeasure1 + " " + strIngredient1}}</p>
+              <p>{{strMeasure2 + " " + strIngredient2}}</p>
+              <p>{{strMeasure3 + " " + strIngredient3}}</p>
+              <p>{{strInstructions}}</p>
             </section>
 
             <footer class="modal-footer">
-                <slot name="footer">
-                This is the default footer!
-                </slot>
                 <button
                 type="button"
                 class="btn-green"
                 @click="close"
                 >
-                Close Modal
+                Close
                 </button>
             </footer>
             </div>
@@ -44,6 +41,13 @@
     props: {
         msg: String,
         strDrink: String,
+        strMeasure1: String,
+        strMeasure2: String,
+        strMeasure3: String,
+        strIngredient1: String,
+        strIngredient2: String,
+        strIngredient3: String,
+        strInstructions: String
     },
     methods: {
       close() {
@@ -54,6 +58,19 @@
 </script>
 
 <style>
+  p {
+    font-size: 14pt;
+    padding: 10px;
+  }
+
+  h2 {
+    padding: 10px;
+  }
+
+  h3 {
+    padding: 10px;
+  }
+
   .modal-backdrop {
     position: fixed;
     top: 0;
@@ -107,15 +124,16 @@
     padding: 10px;
     cursor: pointer;
     font-weight: bold;
-    color: #4AAE9B;
+    color: #0065ad;
     background: transparent;
   }
 
   .btn-green {
     color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
+    background: #0065ad;
+    border: 1px solid #0065ad;
     border-radius: 2px;
+    padding: 10px;
   }
 
   .modal-fade-enter,

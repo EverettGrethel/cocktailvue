@@ -2,11 +2,6 @@
     <li @click='showModal'>
         <img :src="cocktail.strDrinkThumb">
         <h2>{{cocktail.strDrink}}</h2>
-        <h3>Ingredients:</h3>
-        <p>{{cocktail.strMeasure1 + " " + cocktail.strIngredient1}}</p>
-        <p>{{cocktail.strMeasure2 + " " + cocktail.strIngredient2}}</p>
-        <p>{{cocktail.strMeasure3 + " " + cocktail.strIngredient3}}</p>
-        <p>{{cocktail.strInstructions}}</p>
     </li>
 </template>
 
@@ -30,18 +25,22 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 img {
-    max-width: 50px;
+    width: 100%;
 }
 
 li {
     list-style-type: none;
     background: #fff;
     border-radius: 2px;
-    height: 200px;
     margin: 1rem;
     position: relative;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     padding: 20px;
+    text-align: center;
+}
+
+h2 {
+  font-size: 20pt;
 }
 
 
